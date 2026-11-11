@@ -338,3 +338,25 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
 </body>
 </html>
+
+
+
+<script>
+function togglePassword() {
+    const password = document.getElementById("password");
+    const button = document.querySelector(".show-btn");
+
+    if (password.type === "password") {
+        password.type = "text";
+        button.textContent = "Hide";
+    } else {
+        password.type = "password";
+        button.textContent = "Show";
+    }
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    window.location.href = "index.html";
+});
+</script>
