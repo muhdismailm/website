@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f4f6f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            min-height: 100vh;
+            background: #212529;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background: #343a40;
+            color: white;
+        }
+
+        .main-content {
+            padding: 25px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            background: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-md-2 sidebar">
+            <h4 class="mb-4">My Dashboard</h4>
+
+            <a href="#">🏠 Dashboard</a>
+            <a href="#">👥 Users</a>
+            <a href="#">📦 Products</a>
+            <a href="#">🛒 Orders</a>
+            <a href="#">📊 Reports</a>
+            <a href="#">⚙️ Settings</a>
+            <a href="#">🚪 Logout</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-10">
+
+            <!-- Navbar -->
+            <nav class="navbar shadow-sm">
+                <h5 class="mb-0">Dashboard Overview</h5>
+                <span>Welcome, Admin 👋</span>
+            </nav>
+
+            <div class="main-content">
+
+                <h3 class="mb-4">Dashboard</h3>
+
+                <!-- Summary Cards -->
+                <div class="row g-4">
+
+                    <div class="col-md-3">
+                        <div class="card p-3">
+                            <h6>Total Users</h6>
+                            <h2 class="text-primary">250</h2>
+                            <small class="text-muted">Registered users</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card p-3">
+                            <h6>Total Products</h6>
+                            <h2 class="text-success">120</h2>
+                            <small class="text-muted">Available products</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card p-3">
+                            <h6>Total Orders</h6>
+                            <h2 class="text-warning">85</h2>
+                            <small class="text-muted">Orders received</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card p-3">
+                            <h6>Total Revenue</h6>
+                            <h2 class="text-danger">₹25,000</h2>
+                            <small class="text-muted">Overall revenue</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card mt-5 p-4">
+
+                    <h5 class="mb-3">Recent Orders</h5>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Product</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>101</td>
+                                    <td>Rahul</td>
+                                    <td>Laptop</td>
+                                    <td>₹45,000</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>102</td>
+                                    <td>Arun</td>
+                                    <td>Mobile</td>
+                                    <td>₹15,000</td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>103</td>
+                                    <td>Ajay</td>
+                                    <td>Headphones</td>
+                                    <td>₹2,000</td>
+                                    <td><span class="badge bg-danger">Cancelled</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
