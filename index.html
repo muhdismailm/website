@@ -10,28 +10,33 @@
 
     <style>
         body {
-            background: #f4f6f9;
+            background: #eef3f9;
             font-family: Arial, sans-serif;
         }
 
         .sidebar {
             min-height: 100vh;
-            background: #212529;
+            background: #172554;
             color: white;
             padding: 20px;
         }
 
+        .sidebar h4 {
+            color: #ffffff;
+        }
+
         .sidebar a {
             display: block;
-            color: #ccc;
+            color: #cbd5e1;
             text-decoration: none;
             padding: 12px;
             margin-top: 8px;
-            border-radius: 5px;
+            border-radius: 8px;
+            transition: 0.3s;
         }
 
         .sidebar a:hover {
-            background: #343a40;
+            background: #2563eb;
             color: white;
         }
 
@@ -39,16 +44,56 @@
             padding: 25px;
         }
 
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        .navbar {
+            background: #ffffff;
+            padding: 18px;
         }
 
-        .navbar {
-            background: white;
-            padding: 15px;
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+            transition: 0.3s;
         }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card h6 {
+            color: #64748b;
+        }
+
+        .card h2 {
+            font-weight: bold;
+        }
+
+        .users {
+            border-left: 5px solid #2563eb;
+        }
+
+        .products {
+            border-left: 5px solid #10b981;
+        }
+
+        .orders {
+            border-left: 5px solid #f59e0b;
+        }
+
+        .revenue {
+            border-left: 5px solid #8b5cf6;
+        }
+
+        .table thead {
+            background: #172554;
+            color: white;
+        }
+
+        .table thead th {
+            background: #172554;
+            color: white;
+        }
+
     </style>
 </head>
 
@@ -71,63 +116,63 @@
         </div>
 
         <!-- Main Content -->
-        <div class="col-md-10">
+        <div class="col-md-10 p-0">
 
             <!-- Navbar -->
-            <nav class="navbar shadow-sm">
+            <nav class="navbar shadow-sm d-flex justify-content-between">
                 <h5 class="mb-0">Dashboard Overview</h5>
-                <span>Welcome, Admin 👋</span>
+                <span class="text-primary fw-semibold">Welcome, Admin 👋</span>
             </nav>
 
             <div class="main-content">
 
-                <h3 class="mb-4">Dashboard</h3>
+                <h3 class="mb-4 text-dark">Dashboard</h3>
 
                 <!-- Summary Cards -->
                 <div class="row g-4">
 
                     <div class="col-md-3">
-                        <div class="card p-3">
+                        <div class="card p-3 users">
                             <h6>Total Users</h6>
-                            <h2 class="text-primary">250</h2>
+                            <h2 style="color:#2563eb;">250</h2>
                             <small class="text-muted">Registered users</small>
                         </div>
                     </div>
 
                     <div class="col-md-3">
-                        <div class="card p-3">
+                        <div class="card p-3 products">
                             <h6>Total Products</h6>
-                            <h2 class="text-success">120</h2>
+                            <h2 style="color:#10b981;">120</h2>
                             <small class="text-muted">Available products</small>
                         </div>
                     </div>
 
                     <div class="col-md-3">
-                        <div class="card p-3">
+                        <div class="card p-3 orders">
                             <h6>Total Orders</h6>
-                            <h2 class="text-warning">85</h2>
+                            <h2 style="color:#f59e0b;">85</h2>
                             <small class="text-muted">Orders received</small>
                         </div>
                     </div>
 
                     <div class="col-md-3">
-                        <div class="card p-3">
+                        <div class="card p-3 revenue">
                             <h6>Total Revenue</h6>
-                            <h2 class="text-danger">₹25,000</h2>
+                            <h2 style="color:#8b5cf6;">₹25,000</h2>
                             <small class="text-muted">Overall revenue</small>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- Recent Activity -->
+                <!-- Recent Orders -->
                 <div class="card mt-5 p-4">
 
                     <h5 class="mb-3">Recent Orders</h5>
 
                     <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead class="table-dark">
+                        <table class="table table-hover align-middle">
+                            <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Customer</th>
@@ -151,7 +196,7 @@
                                     <td>Arun</td>
                                     <td>Mobile</td>
                                     <td>₹15,000</td>
-                                    <td><span class="badge bg-warning">Pending</span></td>
+                                    <td><span class="badge bg-warning text-dark">Pending</span></td>
                                 </tr>
 
                                 <tr>
