@@ -63,6 +63,7 @@
 
         .table td {
             padding: 15px;
+            vertical-align: middle;
         }
 
         .btn-add {
@@ -73,6 +74,23 @@
         .btn-add:hover {
             background: #1d4ed8;
             color: white;
+        }
+
+        .search-box {
+            max-width: 300px;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #dbeafe;
+            color: #1d4ed8;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -87,15 +105,15 @@
             <h4>ShopHub</h4>
 
             <a href="index.html">🏠 Dashboard</a>
-            <a href="user.html" class="active">👥 Users</a>
-            <a href="#">📦 Products</a>
+            <a href="users.html" class="active">👥 Users</a>
+            <a href="product.html">📦 Products</a>
             <a href="#">🛒 Orders</a>
             <a href="#">📊 Reports</a>
             <a href="#">⚙️ Settings</a>
             <a href="login.html">🚪 Logout</a>
         </div>
 
-        <!-- Main -->
+        <!-- Main Content -->
         <div class="col-md-10 p-0">
 
             <nav class="navbar shadow-sm d-flex justify-content-between">
@@ -105,10 +123,11 @@
 
             <div class="main-content">
 
+                <!-- Page Heading -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <h3>User Management</h3>
-                        <p class="text-muted">Manage all registered users</p>
+                        <h3>Users</h3>
+                        <p class="text-muted">Manage your registered customers</p>
                     </div>
 
                     <button class="btn btn-add" onclick="addUser()">
@@ -116,7 +135,7 @@
                     </button>
                 </div>
 
-                <!-- Statistics -->
+                <!-- Summary Cards -->
                 <div class="row g-4 mb-4">
 
                     <div class="col-md-4">
@@ -145,57 +164,87 @@
                 <!-- User Table -->
                 <div class="card p-4">
 
-                    <h5 class="mb-3">Registered Users</h5>
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5>Registered Users</h5>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            class="form-control search-box"
+                            placeholder="Search users..."
+                            onkeyup="searchUsers()"
+                        >
+                    </div>
 
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle">
+                        <table class="table table-hover">
+
                             <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
+                                    <th>Joined Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
 
-                            <tbody>
+                            <tbody id="userTable">
+
                                 <tr>
                                     <td>1</td>
-                                    <td>Rahul</td>
+                                    <td><span class="avatar">R</span>Rahul</td>
                                     <td>rahul@gmail.com</td>
                                     <td>9876543210</td>
+                                    <td>10-01-2026</td>
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary">Edit</button>
-                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                        <button class="btn btn-sm btn-primary" onclick="editUser(this)">Edit</button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteUser(this)">Delete</button>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>2</td>
-                                    <td>Arun</td>
+                                    <td><span class="avatar">A</span>Arun</td>
                                     <td>arun@gmail.com</td>
                                     <td>9876543211</td>
+                                    <td>15-02-2026</td>
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary">Edit</button>
-                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                        <button class="btn btn-sm btn-primary" onclick="editUser(this)">Edit</button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteUser(this)">Delete</button>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td>3</td>
-                                    <td>Ajay</td>
+                                    <td><span class="avatar">A</span>Ajay</td>
                                     <td>ajay@gmail.com</td>
                                     <td>9876543212</td>
+                                    <td>20-03-2026</td>
                                     <td><span class="badge bg-danger">Inactive</span></td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary">Edit</button>
-                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                        <button class="btn btn-sm btn-primary" onclick="editUser(this)">Edit</button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteUser(this)">Delete</button>
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td><span class="avatar">S</span>Shamil</td>
+                                    <td>shamil@gmail.com</td>
+                                    <td>9876543213</td>
+                                    <td>05-04-2026</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" onclick="editUser(this)">Edit</button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteUser(this)">Delete</button>
+                                    </td>
+                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -210,7 +259,33 @@
 
 <script>
 function addUser() {
-    alert("Add User button clicked!");
+    alert("Add User clicked!");
+}
+
+function editUser(button) {
+    let row = button.closest("tr");
+    let name = row.cells[1].innerText;
+
+    alert("Edit User: " + name);
+}
+
+function deleteUser(button) {
+    let row = button.closest("tr");
+
+    if (confirm("Are you sure you want to delete this user?")) {
+        row.remove();
+    }
+}
+
+function searchUsers() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let rows = document.querySelectorAll("#userTable tr");
+
+    rows.forEach(row => {
+        row.style.display = row.innerText.toLowerCase().includes(input)
+            ? ""
+            : "none";
+    });
 }
 </script>
 
